@@ -40,19 +40,30 @@ const Nav = styled.nav`
     li > ul > li {
       width: 150px;
     }
-    li > ul {
-      display: none;
-      flex-direction: column;
-    }
-    li:hover > ul {
-      display: flex;
 
+    li.drop-down {
+      display: inline-block;
+    }
+    li > ul {
+      opacity: 0;
       position: absolute;
     }
-    li a:hover {
-      background: rgba(255, 255, 255, 0.2);
+    li:hover > ul {
+      opacity: 1;
+      display: flex;
+      flex-direction: column;
+
+      position: absolute;
+
+      background: rgba(0, 0, 255, 0.2);
       border-radius: 3px;
-      transition: all linear 0.1s;
+      transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.5s,
+        z-index 0s linear 0.01s;
+    }
+    li a:hover {
+      background: rgba(0, 0, 255, 0.1);
+      border-radius: 3px;
+
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
     }
   }
