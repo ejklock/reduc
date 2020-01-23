@@ -11,14 +11,12 @@ export const Container = styled.div`
     align-content: center;
     img {
       width: 180px;
-
-      height: 90px;
     }
 
     p {
       font-family: 'Rubik';
       font-size: 10px;
-      margin-left: 10px;
+      margin-left: 40px;
       margin-top: 10px;
 
       color: #ffff;
@@ -33,14 +31,12 @@ export const Container = styled.div`
     footer {
       justify-content: center;
       p {
-        font-size: 22px;
+        font-size: 18px;
         line-height: 24px;
       }
 
       img {
         width: 284px;
-
-        height: 86px;
       }
     }
   }

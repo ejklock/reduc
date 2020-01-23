@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  background-color: #f3f3f3;
+  background-color: #efeeee;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,7 @@ export const Container = styled.section`
 
   @media screen and (min-width: 768px) {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     align-content: center;
     padding-left: 20px;
@@ -33,17 +33,19 @@ export const Container = styled.section`
 `;
 
 export const SectionIcon = styled.div`
-  flex-direction: column;
-  text-align: center;
+  flex-direction: row;
+  text-align: left;
   padding-bottom: 20px;
-  scroll-padding-left: 20px;
 
   h1 {
     font-family: 'Rubik';
-    font-size: 17px;
+    font-size: 40px;
+    text-transform: uppercase;
     color: #28166f;
-    width: 200px;
-    line-height: 13px;
+
+    border-bottom: 4px solid #28166f;
+
+    line-height: 40px;
     font-weight: bold;
   }
 
@@ -57,17 +59,12 @@ export const SectionIcon = styled.div`
   @media screen and (min-width: 768px) {
     h1 {
       font-family: 'Rubik';
-      font-size: 52px;
-      color: #28166f;
-      width: 442px;
-      line-height: 42px;
+      font-size: 40px;
+      text-transform: uppercase;
+      color: #311b7b;
+      border-bottom: 4px solid #311b7b;
+      line-height: 40px;
       font-weight: bold;
-    }
-
-    svg {
-      width: 239px;
-      height: 171px;
-      fill: #28166f;
     }
   }
 `;

@@ -4,12 +4,10 @@ import BackgroundImage from '../../assets/img/background.png';
 export const Container = styled.header`
   background: url(${BackgroundImage});
   background-repeat: no-repeat;
-
-  height: 687px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 688px;
   background-size: cover;
   background-position: center;
-
-  nav {
-    width: 100%;
-  }
 `;

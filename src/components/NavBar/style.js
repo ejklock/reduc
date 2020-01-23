@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-  background: transparent;
+  background: ${props => (props.background ? props.background : 'transparent')};
   padding: 50px;
-  position: absolute;
-  display: flex;
 
-  flex-wrap: wrap;
+  display: flex;
 
   ul {
     list-style: none;
@@ -31,6 +29,7 @@ const Nav = styled.nav`
 
     li {
       width: 150px;
+      height: 50px;
     }
 
     .drop-down > a:after {
@@ -110,12 +109,15 @@ const Nav = styled.nav`
 
   @media (max-width: 600px) {
     flex-direction: column;
-    padding: 0;
+    padding: 30px;
 
-    margin-top: 20px;
+    li.drop-down {
+      display: flex;
+      flex-direction: column;
+    }
+
     ul li:hover > ul {
       display: flex;
-      position: relative;
     }
 
     > ul {
@@ -124,6 +126,20 @@ const Nav = styled.nav`
     ul li {
       width: 100%;
     }
+
+    li:hover > ul {
+      opacity: 1;
+
+      flex-direction: column;
+    }
+
+    li a:hover {
+      background: rgba(0, 0, 255, 0.1);
+      border-radius: 3px;
+
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+    }
+
     .brand-container {
       padding: 20px;
       button {
