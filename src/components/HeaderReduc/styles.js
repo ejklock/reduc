@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-import BackgroundImage from '../../assets/img/background-2x.png';
+import BackgroundImage from '../../assets/img/background.png';
 
 export const Container = styled.header`
-  display: flex;
-  flex-direction: row;
-
-  margin: -10px;
   background: url(${BackgroundImage});
   background-repeat: no-repeat;
 
