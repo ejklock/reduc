@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
+const navBarBackground =
+  'transparent linear-gradient(265deg, #281664 0%, #0F072A 100%) 0% 0% no-repeat padding-box';
+
 const Nav = styled.nav`
-  background: ${props => (props.background ? props.background : 'transparent')};
+  background: ${props =>
+    props.background === 'transparent' ? props.background : navBarBackground};
   padding: 50px;
 
   display: flex;
@@ -54,7 +58,7 @@ const Nav = styled.nav`
 
       position: absolute;
 
-      background: rgba(0, 0, 255, 0.2);
+      background: rgba(0, 0, 255, 0.6);
       border-radius: 3px;
       transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.5s,
         z-index 0s linear 0.01s;

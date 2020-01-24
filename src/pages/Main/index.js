@@ -81,7 +81,7 @@ export default function Main() {
   return (
     <Container>
       <HeaderReduc>
-        <NavBar />
+        <NavBar background="transparent" />
         <SearchInput />
       </HeaderReduc>
       <Section title="Tipos de Mídia">

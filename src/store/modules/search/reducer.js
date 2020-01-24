@@ -2,7 +2,12 @@ import produce from 'immer';
 
 const INITIAL_STATE = {
   term: null,
-  response: null,
+  pagination: {
+    count: null,
+    currentPage: 1,
+    lastPage: null,
+    records: null,
+  },
 };
 export default function search(state = INITIAL_STATE, action = {}) {
   return produce(state, draft => {
@@ -12,7 +17,9 @@ export default function search(state = INITIAL_STATE, action = {}) {
         break;
 
       case '@search/SEARCH_SUCCESS':
-        draft.response = action.payload;
+        draft.term = action.payload.term;
+        draft.pagination = action.payload.pagination;
+
         break;
 
       default:

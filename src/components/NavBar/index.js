@@ -6,8 +6,10 @@ import LogoUfmt from '../../assets/img/simbolo_ufmt _2x.png';
 export default class NavBar extends Component {
   constructor(props) {
     super(props);
+    const { background } = props;
     this.state = {
       menuOpen: false,
+      background,
     };
 
     this.handleToggleClick = this.handleToggleClick.bind(this);
@@ -20,9 +22,9 @@ export default class NavBar extends Component {
   }
 
   render() {
-    const { menuOpen = false } = this.state;
+    const { menuOpen = false, background } = this.state;
     return (
-      <Nav open={menuOpen}>
+      <Nav open={menuOpen} background={background}>
         <div className="brand-container">
           <a className="brand" href="/">
             <img src={LogoUfmt} alt="" />

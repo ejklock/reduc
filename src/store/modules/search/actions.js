@@ -5,9 +5,24 @@ export function searchRequest(term) {
   };
 }
 
-export function searchSuccess(response) {
+export function searchSuccess(
+  term,
+  resultCount,
+  records,
+  currentPage,
+  lastPage
+) {
+  console.log(term, resultCount, records, currentPage, lastPage);
   return {
-    type: '@auth/SEARCH_SUCCESS',
-    payload: { response },
+    type: '@search/SEARCH_SUCCESS',
+    payload: {
+      term,
+      pagination: {
+        count: resultCount,
+        currentPage,
+        lastPage,
+        records,
+      },
+    },
   };
 }
