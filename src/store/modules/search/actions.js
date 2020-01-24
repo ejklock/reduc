@@ -1,7 +1,7 @@
-export function searchRequest(term) {
+export function searchRequest(term, type, bool) {
   return {
     type: '@search/SEARCH_REQUEST',
-    payload: { term },
+    payload: { term, type, bool },
   };
 }
 

@@ -1,9 +1,12 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useSelector } from 'react-redux';
 import NavBar from '../../components/NavBar';
 import SearchItems from '../../components/SearchItems';
-import Section from '../../components/Section';
-import { Container } from './styles';
+
+import SearchBlock from '../../components/SearchBlock';
+
+import { Container, Section } from './styles';
 
 export default function Search() {
   const {
@@ -14,9 +17,9 @@ export default function Search() {
   return (
     <Container>
       <NavBar />
-      <Section title="Refinar a Busca" color="#EFEEEE" />
-
-      {term ? <h1>Você buscou por: "{term}"</h1> : ''}
+      <Section color="#EFEEEE">
+        <SearchBlock />
+      </Section>
       <SearchItems records={records} />
     </Container>
   );

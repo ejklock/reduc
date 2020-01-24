@@ -7,9 +7,11 @@ import { searchSuccess } from './actions';
 
 export function* searchTerm({ payload }) {
   try {
-    const { term, currentPage = 1, limit = 50 } = payload;
+    const { term, currentPage = 1, limit = 50, type, bool } = payload;
+
     const data = new FormData();
     data.append('limit', limit);
+    data.append('type', type);
     data.append('lookfor', term);
     data.append('page', currentPage);
     const result = yield call(vufind.post, 'search', data);

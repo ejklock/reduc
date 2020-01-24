@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap"');
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700&display=swap');
   *{
     margin:0;
     padding:0;
