@@ -16,4 +16,35 @@ export const Section = styled.section`
   background-color: ${props => (props.color ? props.color : '#fff')};
 
   padding: 50px;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+export const Button = styled.button`
+  background: ${props => (props.color ? props.color : '#311b7b')};
+
+  border: 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-family: 'Rubik';
+  font-size: 20px;
+  padding: 10px;
+  color: #fff;
+
+  margin-left: 10px;
+
+  svg {
+    padding: 1px;
+    margin-right: 5px;
+  }
 `;

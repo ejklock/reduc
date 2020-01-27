@@ -13,12 +13,12 @@ export default function SearchItems({ records = [] }) {
         ? records.map(item => (
             <a
               target="_blank"
-              rel="no"
+              rel="nooppener noreferrer"
               href={item.urls}
               key={generateKey(item.id)}
             >
               <Card>
-                <img src={MaterialTextual} />
+                <img src={MaterialTextual} alt="Icone de tipo de material" />
                 <h4>{item.title}</h4>
               </Card>
             </a>

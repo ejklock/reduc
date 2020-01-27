@@ -1,7 +1,7 @@
-export function searchRequest(term, type, bool) {
+export function searchRequest(payload) {
   return {
     type: '@search/SEARCH_REQUEST',
-    payload: { term, type, bool },
+    payload: { payload },
   };
 }
 
@@ -12,7 +12,6 @@ export function searchSuccess(
   currentPage,
   lastPage
 ) {
-  console.log(term, resultCount, records, currentPage, lastPage);
   return {
     type: '@search/SEARCH_SUCCESS',
     payload: {

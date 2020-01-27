@@ -8,13 +8,14 @@ import { Container, SearchContainer, FilterContainer } from './style';
 
 const filters = ['Assunto', 'Autores', 'Título', 'Data do documento', 'Idioma'];
 const schema = Yup.object().shape({
-  term: Yup.string(),
+  term: Yup.array(),
 });
 
 export default function SearchInput() {
   const dispatch = useDispatch();
-  function handleSubmit({ term }) {
-    dispatch(searchRequest(term));
+
+  function handleSubmit(data) {
+    dispatch(searchRequest(data));
   }
   return (
     <Container>
@@ -23,10 +24,11 @@ export default function SearchInput() {
         <SearchContainer>
           <Input
             type="text"
-            name="term"
+            name="term[0]"
             className="search-box"
             placeholder="Buscar no repositório"
           />
+
           <button type="submit">
             <FaSearch size="30px" />
           </button>

@@ -1,7 +1,7 @@
 import produce from 'immer';
 
 const INITIAL_STATE = {
-  term: null,
+  payload: null,
   pagination: {
     count: null,
     currentPage: 1,
@@ -13,7 +13,8 @@ export default function search(state = INITIAL_STATE, action = {}) {
   return produce(state, draft => {
     switch (action.type) {
       case '@search/SEARCH_REQUEST':
-        draft.term = action.payload.term;
+        draft.payload = action.payload;
+
         break;
 
       case '@search/SEARCH_SUCCESS':

@@ -20,9 +20,9 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  padding-bottom: 15px;
   border-radius: 5px;
-  label {
+  small {
     width: 140px;
     font-size: 22px;
     text-align: left;

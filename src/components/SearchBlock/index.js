@@ -1,16 +1,7 @@
 import React from 'react';
+import { Input, Select } from '@rocketseat/unform';
 
-import { useDispatch, useSelector } from 'react-redux';
-
-import { Form, Input, Select } from '@rocketseat/unform';
-import * as Yup from 'yup';
-import { searchRequest } from '../../store/modules/search/actions';
 import { Container, SearchContainer } from './styles';
-
-const fieldInitialData = {
-  type: 'AllFields',
-  bool: 'AND',
-};
 
 const boolOptions = [
   {
@@ -58,32 +49,19 @@ const fields = [
   },
 ];
 
-const schema = Yup.object().shape({
-  term: Yup.string(),
-  type: Yup.array(),
-  bool: Yup.string(),
-});
-
-export default function SearchBlock() {
-  const dispatch = useDispatch();
-  function handleSubmit(data) {
-    console.log(data);
-    // dispatch(searchRequest(term, type, bool));
-  }
+export default function SearchBlock({ item = 0 }) {
   return (
     <Container>
-      <Form
-        schema={schema}
-        onSubmit={handleSubmit}
-        initialData={fieldInitialData}
-      >
-        <SearchContainer>
-          <label>Buscar por</label>
-          <Input type="text" name="term" placeholder="digitar termo de busca" />
-          <Select name="type[0]" options={fields} />
-          <Select name="bool" options={boolOptions} />
-        </SearchContainer>
-      </Form>
+      <SearchContainer>
+        <small>Buscar por</small>
+        <Input
+          type="text"
+          name={`term[${item}]`}
+          placeholder="digitar termo de busca"
+        />
+        <Select name={`type[${item}]`} defaultChecked options={fields} />
+        <Select name={`bool[${item}]`} options={boolOptions} />
+      </SearchContainer>
     </Container>
   );
 }

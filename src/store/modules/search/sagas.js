@@ -5,24 +5,55 @@ import history from '../../../services/history';
 
 import { searchSuccess } from './actions';
 
+function createFormData(formData, key, data) {
+  if (data === Object(data) || Array.isArray(data)) {
+    for (const i in data) {
+      createFormData(formData, `${key}[${i}]`, data[i]);
+    }
+  } else {
+    formData.append(key, data);
+  }
+}
+
+function getLastPage(count, limit) {
+  const lastPage = Math.ceil(count / limit);
+  return lastPage;
+}
+
 export function* searchTerm({ payload }) {
   try {
-    const { term, currentPage = 1, limit = 50, type, bool } = payload;
+    const {
+      payload: { term = [] },
+      payload: { type = [] },
+      payload: { bool = [] },
+      payload: { currentPage = 1 },
+      limit = 20,
+    } = payload;
 
     const data = new FormData();
-    data.append('limit', limit);
-    data.append('type', type);
     data.append('lookfor', term);
+    data.append('type', type);
+    data.append('bool', bool);
+
+    data.append('limit', limit);
+
     data.append('page', currentPage);
     const result = yield call(vufind.post, 'search', data);
 
     const { resultCount, records } = result.data;
 
-    const lastPage = parseInt(resultCount / limit, 10) - 1;
-
-    yield put(searchSuccess(term, resultCount, records, currentPage, lastPage));
+    yield put(
+      searchSuccess(
+        term,
+        resultCount,
+        records,
+        currentPage,
+        getLastPage(resultCount, limit)
+      )
+    );
     history.push('/search');
   } catch (error) {
+    console.log(error);
     toast.error('Falha na busca', error);
   }
 }
