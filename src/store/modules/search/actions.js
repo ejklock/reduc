@@ -5,23 +5,26 @@ export function searchRequest(payload) {
   };
 }
 
-export function searchSuccess(
+export function searchPageRequest(
   term,
-  resultCount,
-  records,
-  currentPage,
-  lastPage
+  filters = {
+    limit: 20,
+    page: 1,
+  }
 ) {
+  return {
+    type: '@search/SEARCH_PAGE_REQUEST',
+    payload: { term, filters },
+  };
+}
+
+export function searchSuccess(term, filters, pagination) {
   return {
     type: '@search/SEARCH_SUCCESS',
     payload: {
       term,
-      pagination: {
-        count: resultCount,
-        currentPage,
-        lastPage,
-        records,
-      },
+      filters,
+      pagination,
     },
   };
 }

@@ -1,61 +1,77 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
+import paginate from 'jw-paginate';
 import vufind from '../../../services/vufind';
 import history from '../../../services/history';
 
 import { searchSuccess } from './actions';
 
-function createFormData(formData, key, data) {
-  if (data === Object(data) || Array.isArray(data)) {
-    for (const i in data) {
-      createFormData(formData, `${key}[${i}]`, data[i]);
-    }
-  } else {
-    formData.append(key, data);
-  }
-}
-
-function getLastPage(count, limit) {
-  const lastPage = Math.ceil(count / limit);
-  return lastPage;
-}
-
-export function* searchTerm({ payload }) {
+export function* searchPageUsingUrlParams({ payload }) {
   try {
     const {
-      payload: { term = [] },
-      payload: { type = [] },
-      payload: { bool = [] },
-      payload: { currentPage = 1 },
-      limit = 20,
+      term,
+      filters,
+      filters: { page },
+      filters: { limit = 20 },
     } = payload;
 
     const data = new FormData();
     data.append('lookfor', term);
-    data.append('type', type);
-    data.append('bool', bool);
-
+    data.append('page', page);
     data.append('limit', limit);
-
-    data.append('page', currentPage);
     const result = yield call(vufind.post, 'search', data);
-
     const { resultCount, records } = result.data;
 
     yield put(
       searchSuccess(
         term,
-        resultCount,
-        records,
-        currentPage,
-        getLastPage(resultCount, limit)
+        filters,
+        Object.assign(paginate(resultCount, page), {
+          records,
+        })
       )
     );
-    history.push('/search');
+    history.push({
+      pathname: '/search',
+      search: `?lookfor=${term}`,
+    });
   } catch (error) {
-    console.log(error);
     toast.error('Falha na busca', error);
   }
 }
 
-export default all([takeLatest('@search/SEARCH_REQUEST', searchTerm)]);
+export function* searchPage({ payload }) {
+  try {
+    const {
+      term,
+      filters,
+      filters: { page },
+      filters: { limit = 20 },
+    } = payload;
+
+    const data = new FormData();
+    data.append('lookfor', term);
+    data.append('page', page);
+    data.append('limit', limit);
+    const result = yield call(vufind.post, 'search', data);
+    const { resultCount, records } = result.data;
+
+    yield put(
+      searchSuccess(
+        term,
+        filters,
+        Object.assign(paginate(resultCount, page), {
+          records,
+        })
+      )
+    );
+    history.push({
+      pathname: '/search',
+      search: `?lookfor=${term}`,
+    });
+  } catch (error) {
+    toast.error('Falha na busca', error);
+  }
+}
+
+export default all([takeLatest('@search/SEARCH_PAGE_REQUEST', searchPage)]);

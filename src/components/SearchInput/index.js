@@ -1,9 +1,9 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import { FaSearch } from 'react-icons/fa';
 import * as Yup from 'yup';
-import { searchRequest } from '../../store/modules/search/actions';
+import { searchPageRequest } from '../../store/modules/search/actions';
 import { Container, SearchContainer, FilterContainer } from './style';
 
 const filters = ['Assunto', 'Autores', 'Título', 'Data do documento', 'Idioma'];
@@ -14,9 +14,11 @@ const schema = Yup.object().shape({
 export default function SearchInput() {
   const dispatch = useDispatch();
 
-  function handleSubmit(data) {
-    dispatch(searchRequest(data));
+  function handleSubmit({ term }) {
+    dispatch(searchPageRequest(term));
   }
+
+  function handleGetSubmit()
   return (
     <Container>
       <h1>Sobre o que você quer procurar?</h1>

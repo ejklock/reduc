@@ -20,9 +20,4 @@ export function* login({ payload }) {
   }
 }
 
-// export function* register({ payload }) {
-//   try {
-//     const { username, email, password } = payload;
-//   } catch (error) {}
-// }
 export default all([takeLatest('@auth/LOGIN_REQUEST', login)]);

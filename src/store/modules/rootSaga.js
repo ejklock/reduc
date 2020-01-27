@@ -1,8 +1,8 @@
 import { all } from 'redux-saga/effects';
 import auth from './auth/sagas';
 import user from './user/sagas';
-import searchTerm from './search/sagas';
+import searchPage from './search/sagas';
 
 export default function* rootSaga() {
-  return yield all([auth, user, searchTerm]);
+  return yield all([auth, user, searchPage]);
 }

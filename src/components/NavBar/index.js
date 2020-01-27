@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaSearch, FaBars } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 import { Nav } from './style';
 import LogoUfmt from '../../assets/img/simbolo_ufmt _2x.png';
 
