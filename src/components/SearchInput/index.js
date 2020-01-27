@@ -18,7 +18,7 @@ export default function SearchInput() {
     dispatch(searchPageRequest(term));
   }
 
-  function handleGetSubmit()
+  function handleGetSubmit() {}
   return (
     <Container>
       <h1>Sobre o que você quer procurar?</h1>
