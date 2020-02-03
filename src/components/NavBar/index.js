@@ -29,7 +29,7 @@ export default class NavBar extends Component {
           <a className="brand" href="/">
             <img src={LogoUfmt} alt="" />
             <h1> REduc | </h1>
-            <small> Repositório Digital da UFMT</small>
+            <small> Repositório Digital da Educação </small>
           </a>
           <button
             type="button"
@@ -44,11 +44,9 @@ export default class NavBar extends Component {
             <a href="#">O REduc</a>
             <ul>
               <li>
-                <a href="#">A Revista</a>
+                <a href="#">O Repositório</a>
               </li>
-              <li>
-                <a href="#">Editorial</a>
-              </li>
+
               <li>
                 <a href="#">Normas</a>
               </li>

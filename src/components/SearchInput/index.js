@@ -1,10 +1,11 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+
 import { Form, Input } from '@rocketseat/unform';
 import { FaSearch } from 'react-icons/fa';
 import * as Yup from 'yup';
-import { searchPageRequest } from '../../store/modules/search/actions';
+
 import { Container, SearchContainer, FilterContainer } from './style';
+import history from '../../services/history';
 
 const filters = ['Assunto', 'Autores', 'Título', 'Data do documento', 'Idioma'];
 const schema = Yup.object().shape({
@@ -12,17 +13,16 @@ const schema = Yup.object().shape({
 });
 
 export default function SearchInput() {
-  const dispatch = useDispatch();
-
-  function handleSubmit({ term }) {
-    dispatch(searchPageRequest(term));
+  function handleGetSubmit({ term }) {
+    history.push({
+      pathname: '/search',
+      search: `?lookfor=${term}`,
+    });
   }
-
-  function handleGetSubmit() {}
   return (
     <Container>
       <h1>Sobre o que você quer procurar?</h1>
-      <Form schema={schema} onSubmit={handleSubmit}>
+      <Form schema={schema} onSubmit={handleGetSubmit}>
         <SearchContainer>
           <Input
             type="text"
@@ -36,7 +36,7 @@ export default function SearchInput() {
           </button>
         </SearchContainer>
       </Form>
-      <FilterContainer>
+      {/* <FilterContainer>
         <h2>Navegar Por:</h2>
         <ul>
           {filters.map(item => (
@@ -45,7 +45,7 @@ export default function SearchInput() {
             </li>
           ))}
         </ul>
-      </FilterContainer>
+      </FilterContainer> */}
     </Container>
   );
 }

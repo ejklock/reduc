@@ -1,6 +1,17 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  h3 {
+    font-family: 'Rubik';
+    font-weight: 900;
+    padding: 15px;
+    font-size: 25px;
+    font-style: italic;
+    text-align: center;
+
+    color: #311b7b;
+  }
+`;
 
 export const SectionTitle = styled.h2`
   font-family: 'Rubik';

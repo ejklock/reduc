@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   term: null,
   filters: {
     limit: 20,
+    filter: [],
   },
   pagination: {
     count: null,
@@ -26,6 +27,7 @@ export default function search(state = INITIAL_STATE, action = {}) {
         draft.term = action.payload.term;
         draft.pagination = action.payload.pagination;
         draft.page = action.payload.page;
+        draft.filters = action.payload.filters;
 
         break;
 

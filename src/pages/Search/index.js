@@ -4,8 +4,6 @@ import { Form, Scope } from '@rocketseat/unform';
 import { FaPlus, FaSearch } from 'react-icons/fa';
 import * as Yup from 'yup';
 
-import { useParams } from 'react-router-dom';
-
 import NavBar from '../../components/NavBar';
 import SearchItems from '../../components/SearchItems';
 import SearchPaginator from '../../components/SearchPaginator';
@@ -26,12 +24,14 @@ const schema = Yup.object().shape({
 export default function Search() {
   const {
     pagination: { records = [] },
+    pagination: { totalItems },
   } = useSelector(state => state.search);
   const dispatch = useDispatch();
   const [inputList, setInputList] = useState([]);
   const [index, setIndex] = useState(1);
 
-  const [lookForValue, onSetLookForValue] = useQueryString('lookfor', false);
+  const [lookForValue, onSetLookForValue] = useQueryString('lookfor', ' ');
+  const [filterValue, onSetFilterValue] = useQueryString('filter', false);
 
   const [fieldsInitialData, setFieldsInitialData] = useState({
     fields: {
@@ -41,10 +41,26 @@ export default function Search() {
   });
 
   useEffect(() => {
-    if (lookForValue) {
-      dispatch(searchPageRequest(lookForValue));
+    if (lookForValue && !filterValue) {
+      dispatch(
+        searchPageRequest(lookForValue, {
+          filter: filterValue,
+        })
+      );
     }
-  }, [dispatch, lookForValue, onSetLookForValue]);
+  }, [dispatch, filterValue, lookForValue, onSetLookForValue]);
+
+  useEffect(() => {
+    if (lookForValue && filterValue) {
+      dispatch(
+        searchPageRequest(lookForValue, {
+          filter: filterValue,
+          limit: 20,
+          page: 1,
+        })
+      );
+    }
+  }, [dispatch, filterValue, lookForValue, onSetFilterValue]);
 
   function handleSubmit({ fields }) {
     dispatch(searchPageRequest(fields.term));
@@ -88,6 +104,7 @@ export default function Search() {
       </Section>
       {records ? (
         <>
+          <h3>Aproximadamente {totalItems} resultados </h3>
           <SearchItems records={records} />
           <SearchPaginator />
         </>
