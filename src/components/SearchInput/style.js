@@ -51,6 +51,13 @@ export const SearchContainer = styled.div`
     background: #42ce9e;
   }
 
+  span {
+    color: red;
+    align-self: flex-start;
+    margin: 0 0 10px;
+    font-weight: bold;
+  }
+
   button:hover {
     background: rgba(0, 0, 0, 0.2);
   }

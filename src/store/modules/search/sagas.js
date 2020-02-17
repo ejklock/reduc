@@ -12,13 +12,33 @@ export function* searchPage({ payload }) {
       filters,
       filters: { page },
       filters: { limit = 20 },
-      filters: { type = 'AllFields', sort = 'relevance' },
+      filters: { type, bool, sort = 'relevance' },
       filters: { filter = [] },
     } = payload;
 
     const data = new FormData();
 
-    data.append('lookfor', term);
+    if (bool) {
+      data.append('bool0[]', bool);
+    }
+
+    if (term && Array.isArray(term)) {
+      term.forEach(e => {
+        data.append('lookfor0[]', `${e}`);
+      });
+    } else {
+      data.append('lookfor', term);
+    }
+
+    if (type) {
+      if (Array.isArray(type)) {
+        type.forEach(e => {
+          data.append('type0[]', e);
+        });
+      } else {
+        data.append('type0[]', type);
+      }
+    }
 
     if (filter) {
       if (Array.isArray(filter)) {
@@ -30,7 +50,7 @@ export function* searchPage({ payload }) {
       }
     }
     data.append('page', page);
-    data.append('type', type);
+
     data.append('sort', sort);
     data.append('limit', limit);
 
@@ -50,5 +70,7 @@ export function* searchPage({ payload }) {
     toast.error('Falha na busca', error);
   }
 }
+
+export function* advancedSearch({ payload }) {}
 
 export default all([takeLatest('@search/SEARCH_PAGE_REQUEST', searchPage)]);

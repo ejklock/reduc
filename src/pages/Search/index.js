@@ -16,7 +16,7 @@ import useQueryString from '../../hooks/useQueryString';
 const schema = Yup.object().shape({
   fields: Yup.object().shape({
     term: Yup.array(),
-    bool: Yup.array(),
+    bool: Yup.string(),
     type: Yup.array(),
   }),
 });
@@ -30,7 +30,7 @@ export default function Search() {
   const [inputList, setInputList] = useState([]);
   const [index, setIndex] = useState(1);
 
-  const [lookForValue, onSetLookForValue] = useQueryString('lookfor', ' ');
+  const [lookForValue, onSetLookForValue] = useQueryString('lookfor', '');
   const [filterValue, onSetFilterValue] = useQueryString('filter', false);
 
   const [fieldsInitialData, setFieldsInitialData] = useState({
@@ -62,8 +62,17 @@ export default function Search() {
     }
   }, [dispatch, filterValue, lookForValue, onSetFilterValue]);
 
-  function handleSubmit({ fields }) {
-    dispatch(searchPageRequest(fields.term));
+  function handleSubmit({
+    fields: { term, bool = 'AND', type = 'AllFields' },
+  }) {
+    dispatch(
+      searchPageRequest(term, {
+        limit: 20,
+        bool,
+        type,
+        page: 1,
+      })
+    );
   }
 
   function handleAddBtnClick() {

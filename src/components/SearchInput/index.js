@@ -9,7 +9,7 @@ import history from '../../services/history';
 
 const filters = ['Assunto', 'Autores', 'Título', 'Data do documento', 'Idioma'];
 const schema = Yup.object().shape({
-  term: Yup.array(),
+  term: Yup.string().required('Digite um termo para busca'),
 });
 
 export default function SearchInput() {
@@ -26,7 +26,7 @@ export default function SearchInput() {
         <SearchContainer>
           <Input
             type="text"
-            name="term[0]"
+            name="term"
             className="search-box"
             placeholder="Buscar no repositório"
           />

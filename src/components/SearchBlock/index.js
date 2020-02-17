@@ -32,20 +32,8 @@ const fields = [
     title: 'Assunto',
   },
   {
-    id: 'abstract_por',
-    title: 'Resumo Português',
-  },
-  {
-    id: 'abstract_en',
-    title: 'Resumo Inglês',
-  },
-  {
-    id: 'publisher',
-    title: 'Editor',
-  },
-  {
-    id: 'year',
-    title: 'Ano',
+    id: 'Author',
+    title: 'Autor',
   },
 ];
 
@@ -60,7 +48,7 @@ export default function SearchBlock({ item = 0 }) {
           placeholder="digitar termo de busca"
         />
         <Select name={`type[${item}]`} defaultChecked options={fields} />
-        <Select name={`bool[${item}]`} options={boolOptions} />
+        {item === 0 ? <Select name="bool" options={boolOptions} /> : ''}
       </SearchContainer>
     </Container>
   );
