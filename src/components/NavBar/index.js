@@ -26,7 +26,7 @@ export default class NavBar extends Component {
     return (
       <Nav open={menuOpen} background={background}>
         <div className="brand-container">
-          <a className="brand" href="/">
+          <a className="brand" href="/" tabIndex="0">
             <img src={LogoUfmt} alt="" />
             <h1> REduc | </h1>
             <small> Repositório Digital da Educação </small>
@@ -40,27 +40,39 @@ export default class NavBar extends Component {
           </button>
         </div>
         <ul id="main-nav">
-          <li className="drop-down">
-            <a href="#">O REduc</a>
+          <li className="drop-down" tabIndex="1">
+            <a href="#" tabIndex="1">
+              O REduc
+            </a>
             <ul>
               <li>
-                <a href="#">O Repositório</a>
+                <a href="#" tabIndex="2">
+                  O Repositório
+                </a>
               </li>
 
               <li>
-                <a href="#">Normas</a>
+                <a href="#" tabIndex="3">
+                  Normas
+                </a>
               </li>
             </ul>
           </li>
 
           <li>
-            <a href="#">Tipos de Mídia</a>
+            <a href="#" tabIndex="4">
+              Tipos de Mídia
+            </a>
           </li>
           <li>
-            <a href="#">Equipe</a>
+            <a href="#" tabIndex="5">
+              Equipe
+            </a>
           </li>
           <li>
-            <a href="#">Contato</a>
+            <a href="#" tabIndex="6">
+              Contato
+            </a>
           </li>
         </ul>
       </Nav>

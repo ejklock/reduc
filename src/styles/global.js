@@ -23,6 +23,14 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  a:focus {
+    border: 1px solid red;
+  }
+
+  ul li:focus{
+     border: 1px solid red; 
+  }
+
   .container {
   width: 100%;
   padding-right: 15px;

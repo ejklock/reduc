@@ -14,7 +14,7 @@ export default function SearchItems({ records = [] }) {
             <a
               target="_blank"
               rel="nooppener noreferrer"
-              href={item.urls}
+              href={Array.isArray(item.urls) ? item.urls[0].url : item.urls.url}
               key={generateKey(item.id)}
             >
               <Card>

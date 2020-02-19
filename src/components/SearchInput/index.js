@@ -25,6 +25,7 @@ export default function SearchInput() {
       <Form schema={schema} onSubmit={handleGetSubmit}>
         <SearchContainer>
           <Input
+            inputRef={input => input && input.focus()}
             type="text"
             name="term"
             className="search-box"
