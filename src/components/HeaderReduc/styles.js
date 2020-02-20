@@ -6,7 +6,7 @@ export const Container = styled.header`
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   height: 688px;
   background-size: cover;
   background-position: center;

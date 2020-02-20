@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const navBarBackground =
-  'transparent linear-gradient(265deg, #281664 0%, #0F072A 100%) 0% 0% no-repeat padding-box';
+  'transparent linear-gradient(265deg,#281664 0%,#0F0730 100%) 0% 0% no-repeat padding-box';
 
 const Nav = styled.nav`
   background: ${props =>

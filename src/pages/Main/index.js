@@ -73,8 +73,8 @@ const courses = [
 export default function Main() {
   return (
     <Container>
+      <NavBar background="#130934" />
       <HeaderReduc>
-        <NavBar background="transparent" />
         <SearchInput />
       </HeaderReduc>
       <Section title="Tipos de Mídia">
