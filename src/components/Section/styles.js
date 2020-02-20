@@ -8,12 +8,6 @@ export const Container = styled.section`
   padding: 30px;
   align-content: center;
 
-  p {
-    font-family: 'Rubik';
-    font-size: 12px;
-    line-height: 19px;
-  }
-
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -22,13 +16,6 @@ export const Container = styled.section`
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 50px;
-
-    p {
-      font-family: 'Rubik';
-      font-size: 25px;
-      padding: 40px;
-      line-height: 40px;
-    }
   }
 `;
 
