@@ -36,6 +36,13 @@ export default function SearchItems({ records = [] }) {
     const result = keys.join();
     return result;
   }
+
+  function getUrl(urls) {
+    if (urls.length > 0) {
+      return urls.find(e => true).url;
+    }
+    return '';
+  }
   return (
     <Container>
       {records
@@ -48,11 +55,7 @@ export default function SearchItems({ records = [] }) {
                 alt="Icone de tipo de material"
               />
               <CardBody>
-                <a
-                  href={
-                    Array.isArray(item.urls) ? item.urls[0].url : item.urls.url
-                  }
-                >
+                <a href={getUrl(item.urls)}>
                   <h4>{item.title}</h4>
                 </a>
 
