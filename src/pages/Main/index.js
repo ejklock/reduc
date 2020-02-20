@@ -8,10 +8,8 @@ import SearchInput from '../../components/SearchInput';
 import Section from '../../components/Section';
 import Media from '../../components/Media';
 import MidiasEducacionais from '../../assets/img/midias.svg';
-import ProgramaRadio from '../../assets/img/programa_radio.svg';
 import Apps from '../../assets/img/desenvol_aplicativo.svg';
 import Text from '../../assets/img/material_textual.svg';
-import Patentes from '../../assets/img/patentes.svg';
 import AtividadesExtensao from '../../assets/img/extensao.svg';
 import PosGraducao from '../../assets/img/pos_graduacao.svg';
 import OrganizacaoEvento from '../../assets/img/organizacao_evento.svg';
@@ -23,42 +21,37 @@ const medias = [
   {
     icon: AtividadesExtensao,
     name: 'Atividades de extensão',
-  },
-  {
-    icon: ProgramaRadio,
-    name: 'Programa de Rádio e Tv',
+    url: 'format%3A%22Atividades+de+extens%C3%A3o%22',
   },
   {
     icon: Apps,
     name: 'Desenvolvimento de Aplicativos',
+    url: 'format%3A%22Desenvolvimento+de+aplicativos%22',
   },
   {
     icon: Text,
     name: 'Material Textual',
-  },
-  {
-    icon: Patentes,
-    name: 'Patentes',
+    url: 'format:"Material+textual"',
   },
   {
     icon: MidiasEducacionais,
     name: 'Midias Educacionais',
-  },
-  {
-    icon: PosGraducao,
-    name: 'Pós Graduação',
+    url: 'format%3A%22M%C3%ADdias+educacionais%22',
   },
   {
     icon: OrganizacaoEvento,
     name: 'Organização de Eventos',
+    url: 'format%3A%22Organiza%C3%A7%C3%A3o+de+evento%22',
   },
   {
     icon: RelatorioPesquisa,
     name: 'Relatório de Pesquisa',
+    url: 'format%3A%22Relat%C3%B3rios+de+pesquisa%22',
   },
   {
     icon: Extensao,
     name: 'Extensão',
+    url: 'format%3A%22Atividades+de+extens%C3%A3o%22',
   },
 ];
 

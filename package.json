@@ -13,7 +13,7 @@
     "jw-react-pagination": "^1.1.0",
     "polished": "^3.4.2",
     "prop-types": "^15.7.2",
-    "query-string": "^6.10.1",
+    "query-string": "^6.11.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-icons": "^3.8.0",

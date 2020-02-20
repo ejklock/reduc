@@ -6,7 +6,7 @@ export default function Media({ medias = [] }) {
   return (
     <Container>
       {medias.map(media => (
-        <a key={Math.random()} href="#">
+        <a key={Math.random()} href={`search?&filter[]=${media.url}`}>
           <MediaContainer>
             <img src={media.icon} />
             <h3>{media.name}</h3>

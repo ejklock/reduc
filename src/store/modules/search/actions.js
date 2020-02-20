@@ -6,7 +6,7 @@ export function searchRequest(payload) {
 }
 
 export function searchPageRequest(
-  term,
+  params,
   filters = {
     limit: 20,
     page: 1,
@@ -14,15 +14,15 @@ export function searchPageRequest(
 ) {
   return {
     type: '@search/SEARCH_PAGE_REQUEST',
-    payload: { term, filters },
+    payload: { params, filters },
   };
 }
 
-export function searchSuccess(term, filters, pagination) {
+export function searchSuccess(params, filters, pagination) {
   return {
     type: '@search/SEARCH_SUCCESS',
     payload: {
-      term,
+      params,
       filters,
       pagination,
     },

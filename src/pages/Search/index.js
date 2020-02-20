@@ -4,6 +4,7 @@ import { Form, Scope } from '@rocketseat/unform';
 import { FaPlus, FaSearch } from 'react-icons/fa';
 import * as Yup from 'yup';
 
+import queryString from 'query-string';
 import NavBar from '../../components/NavBar';
 import SearchItems from '../../components/SearchItems';
 import SearchPaginator from '../../components/SearchPaginator';
@@ -15,7 +16,7 @@ import useQueryString from '../../hooks/useQueryString';
 
 const schema = Yup.object().shape({
   fields: Yup.object().shape({
-    term: Yup.array(),
+    lookfor: Yup.array(),
     bool: Yup.string(),
     type: Yup.array(),
   }),
@@ -30,8 +31,9 @@ export default function Search() {
   const [inputList, setInputList] = useState([]);
   const [index, setIndex] = useState(1);
 
-  const [lookForValue, onSetLookForValue] = useQueryString('lookfor', '');
-  const [filterValue, onSetFilterValue] = useQueryString('filter', false);
+  const [params, onSetParamsValue] = useState(
+    queryString.parse(window.location.search, { arrayFormat: 'bracket' })
+  );
 
   const [fieldsInitialData, setFieldsInitialData] = useState({
     fields: {
@@ -41,38 +43,15 @@ export default function Search() {
   });
 
   useEffect(() => {
-    if (lookForValue && !filterValue) {
-      dispatch(
-        searchPageRequest(lookForValue, {
-          filter: filterValue,
-        })
-      );
+    if (params) {
+      dispatch(searchPageRequest(params));
     }
-  }, [dispatch, filterValue, lookForValue, onSetLookForValue]);
-
-  useEffect(() => {
-    if (lookForValue && filterValue) {
-      dispatch(
-        searchPageRequest(lookForValue, {
-          filter: filterValue,
-          limit: 20,
-          page: 1,
-        })
-      );
-    }
-  }, [dispatch, filterValue, lookForValue, onSetFilterValue]);
+  }, [dispatch, params, onSetParamsValue]);
 
   function handleSubmit({
-    fields: { term, bool = 'AND', type = 'AllFields' },
+    fields: { lookfor, bool = 'AND', type = 'AllFields' },
   }) {
-    dispatch(
-      searchPageRequest(term, {
-        limit: 20,
-        bool,
-        type,
-        page: 1,
-      })
-    );
+    dispatch(searchPageRequest({ lookfor, bool, type }));
   }
 
   function handleAddBtnClick() {

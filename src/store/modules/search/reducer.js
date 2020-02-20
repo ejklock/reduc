@@ -1,7 +1,7 @@
 import produce from 'immer';
 
 const INITIAL_STATE = {
-  term: null,
+  params: {},
   filters: {
     limit: 20,
     filter: [],
@@ -17,17 +17,17 @@ export default function search(state = INITIAL_STATE, action = {}) {
   return produce(state, draft => {
     switch (action.type) {
       case '@search/SEARCH_PAGE_REQUEST':
-        draft.term = action.payload.term;
+        draft.params = action.payload.params;
         draft.page = action.payload.page;
         draft.filters = action.payload.filters;
 
         break;
 
       case '@search/SEARCH_SUCCESS':
-        draft.term = action.payload.term;
         draft.pagination = action.payload.pagination;
         draft.page = action.payload.page;
         draft.filters = action.payload.filters;
+        draft.params = action.payload.params;
 
         break;
 

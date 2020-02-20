@@ -7,15 +7,18 @@ import { Container, PaginatorList, PaginatorListItem } from './styles';
 
 export default function SearchPaginator() {
   const {
-    term,
-    filters = [],
+    params,
+    filters,
+
     pagination: { pages = [], currentPage, endPage },
   } = useSelector(state => state.search);
+
+  console.log(filters);
 
   const dispatch = useDispatch();
 
   function handlePageClick(page) {
-    dispatch(searchPageRequest(term, { filter: filters.filter, page }));
+    dispatch(searchPageRequest(params, { limit: 20, page }));
   }
 
   return (

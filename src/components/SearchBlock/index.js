@@ -44,7 +44,7 @@ export default function SearchBlock({ item = 0 }) {
         <small>Buscar por</small>
         <Input
           type="text"
-          name={`term[${item}]`}
+          name={`lookfor[${item}]`}
           placeholder="digitar termo de busca"
         />
         <Select name={`type[${item}]`} defaultChecked options={fields} />

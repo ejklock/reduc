@@ -7,61 +7,56 @@ import { searchSuccess } from './actions';
 
 export function* searchPage({ payload }) {
   try {
-    const {
-      term = ' ',
-      filters,
-      filters: { page },
-      filters: { limit = 20 },
-      filters: { type, bool, sort = 'relevance' },
-      filters: { filter = [] },
-    } = payload;
+    const { params: lookfor = '', params, filters } = payload;
 
     const data = new FormData();
 
-    if (bool) {
-      data.append('bool0[]', bool);
+    if (params.bool) {
+      data.append('bool0[]', params.bool);
     }
 
-    if (term && Array.isArray(term)) {
-      term.forEach(e => {
-        data.append('lookfor0[]', `${e}`);
-      });
-    } else {
-      data.append('lookfor', term);
+    if (params.lookfor) {
+      if (params.lookfor && Array.isArray(params.lookfor)) {
+        params.lookfor.forEach(e => {
+          data.append('lookfor0[]', `${e}`);
+        });
+      } else {
+        data.append('lookfor', params.lookfor);
+      }
     }
 
-    if (type) {
-      if (Array.isArray(type)) {
-        type.forEach(e => {
+    if (params.type) {
+      if (Array.isArray(params.type)) {
+        params.type.forEach(e => {
           data.append('type0[]', e);
         });
       } else {
-        data.append('type0[]', type);
+        data.append('type0[]', params.type);
       }
     }
 
-    if (filter) {
-      if (Array.isArray(filter)) {
-        filter.forEach(e => {
+    if (params.filter) {
+      if (Array.isArray(params.filter)) {
+        params.filter.forEach(e => {
           data.append('filter[]', `${e}`);
         });
       } else {
-        data.append('filter[]', `${filter}`);
+        data.append('filter[]', `${params.filter}`);
       }
     }
-    data.append('page', page);
+    data.append('page', filters.page);
+    data.append('limit', filters.limit);
 
-    data.append('sort', sort);
-    data.append('limit', limit);
+    // data.append('sort', sort);
 
     const result = yield call(vufind.post, 'search', data);
     const { resultCount, records } = result.data;
 
     yield put(
       searchSuccess(
-        term,
+        lookfor,
         filters,
-        Object.assign(paginate(resultCount, page), {
+        Object.assign(paginate(resultCount, filters.page, filters.limit), {
           records,
         })
       )
@@ -70,7 +65,5 @@ export function* searchPage({ payload }) {
     toast.error('Falha na busca', error);
   }
 }
-
-export function* advancedSearch({ payload }) {}
 
 export default all([takeLatest('@search/SEARCH_PAGE_REQUEST', searchPage)]);
