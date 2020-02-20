@@ -40,29 +40,25 @@ export default function SearchItems({ records = [] }) {
     <Container>
       {records
         ? records.map(item => (
-            <>
-              <Card key={generateKey(item.id)}>
-                <img
-                  src={getIcon(
-                    Array.isArray(item.formats) ? item.formats[0] : ''
-                  )}
-                  alt="Icone de tipo de material"
-                />
-                <CardBody>
-                  <a
-                    href={
-                      Array.isArray(item.urls)
-                        ? item.urls[0].url
-                        : item.urls.url
-                    }
-                  >
-                    <h4>{item.title}</h4>
-                  </a>
+            <Card key={generateKey(item.id)}>
+              <img
+                src={getIcon(
+                  Array.isArray(item.formats) ? item.formats[0] : ''
+                )}
+                alt="Icone de tipo de material"
+              />
+              <CardBody>
+                <a
+                  href={
+                    Array.isArray(item.urls) ? item.urls[0].url : item.urls.url
+                  }
+                >
+                  <h4>{item.title}</h4>
+                </a>
 
-                  <h5>{getAuthors(item.authors)}</h5>
-                </CardBody>
-              </Card>
-            </>
+                <h5>{getAuthors(item.authors)}</h5>
+              </CardBody>
+            </Card>
           ))
         : ''}
     </Container>

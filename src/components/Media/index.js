@@ -8,7 +8,10 @@ export default function Media({ medias = [] }) {
       {medias.map(media => (
         <a key={Math.random()} href={`search?&filter[]=${media.url}`}>
           <MediaContainer>
-            <img src={media.icon} />
+            <img
+              src={media.icon}
+              alt={`Ícone de tipo de Mídia ${media.name}`}
+            />
             <h3>{media.name}</h3>
           </MediaContainer>
         </a>

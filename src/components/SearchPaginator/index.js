@@ -8,12 +8,9 @@ import { Container, PaginatorList, PaginatorListItem } from './styles';
 export default function SearchPaginator() {
   const {
     params,
-    filters,
 
     pagination: { pages = [], currentPage, endPage },
   } = useSelector(state => state.search);
-
-  console.log(filters);
 
   const dispatch = useDispatch();
 
@@ -24,34 +21,32 @@ export default function SearchPaginator() {
   return (
     <Container>
       {pages ? (
-        <>
-          <PaginatorList>
-            <button
-              type="button"
-              onClick={() =>
-                currentPage !== endPage ? handlePageClick(currentPage - 1) : ''
-              }
-            >
-              <FaArrowLeft />
-            </button>
-            {pages.map(page => (
-              <PaginatorListItem key={page} currentPage={page === currentPage}>
-                <button onClick={() => handlePageClick(page)} type="button">
-                  {page}
-                </button>
-              </PaginatorListItem>
-            ))}
+        <PaginatorList>
+          <button
+            type="button"
+            onClick={() =>
+              currentPage !== endPage ? handlePageClick(currentPage - 1) : ''
+            }
+          >
+            <FaArrowLeft />
+          </button>
+          {pages.map(page => (
+            <PaginatorListItem key={page} currentPage={page === currentPage}>
+              <button onClick={() => handlePageClick(page)} type="button">
+                {page}
+              </button>
+            </PaginatorListItem>
+          ))}
 
-            <button
-              type="button"
-              onClick={() =>
-                currentPage !== endPage ? handlePageClick(currentPage + 1) : ''
-              }
-            >
-              <FaArrowRight />
-            </button>
-          </PaginatorList>
-        </>
+          <button
+            type="button"
+            onClick={() =>
+              currentPage !== endPage ? handlePageClick(currentPage + 1) : ''
+            }
+          >
+            <FaArrowRight />
+          </button>
+        </PaginatorList>
       ) : (
         ''
       )}

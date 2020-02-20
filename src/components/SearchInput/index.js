@@ -4,12 +4,12 @@ import { Form, Input } from '@rocketseat/unform';
 import { FaSearch } from 'react-icons/fa';
 import * as Yup from 'yup';
 
-import { Container, SearchContainer, FilterContainer } from './style';
+import { Container, SearchContainer } from './style';
 import history from '../../services/history';
 
-const filters = ['Assunto', 'Autores', 'Título', 'Data do documento', 'Idioma'];
+// const filters = ['Assunto', 'Autores', 'Título', 'Data do documento', 'Idioma'];
 const schema = Yup.object().shape({
-  term: Yup.string().required('Digite um termo para busca'),
+  term: Yup.string(),
 });
 
 export default function SearchInput() {
