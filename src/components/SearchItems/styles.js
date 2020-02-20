@@ -21,6 +21,7 @@ export const CardBody = styled.div`
     padding-left: 15px;
     color: #3a1d98;
     margin-top: 10px;
+    font-weight: 400;
   }
 
   @media (max-width: 600px) {
