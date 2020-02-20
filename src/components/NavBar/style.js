@@ -113,7 +113,8 @@ const Nav = styled.nav`
 
   @media (max-width: 600px) {
     flex-direction: column;
-    padding: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     li.drop-down {
       display: flex;
@@ -156,17 +157,17 @@ const Nav = styled.nav`
         display: flex;
 
         h1 {
-          font-size: 14px;
+          font-size: 16px;
           padding-left: 10px;
           letter-spacing: 0;
         }
         small {
-          font-size: 12px;
+          font-size: 14px;
           padding-left: 5px;
         }
       }
       .brand img {
-        width: 20%;
+        width: 15%;
         height: auto;
       }
     }

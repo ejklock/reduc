@@ -8,11 +8,13 @@ import Painel from '../pages/Painel';
 import Search from '../pages/Search';
 import Dashboard from '../pages/Dashboard';
 import Equipe from '../pages/Equipe';
+import About from '../pages/About';
 
 export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact isHome component={Main} />
+      <Route path="/oreduc" exact isHome component={About} />
       <Route path="/search" exact isHome component={Search} />
       <Route path="/equipe" exact isHome component={Equipe} />
 

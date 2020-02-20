@@ -41,7 +41,7 @@ export default class NavBar extends Component {
         </div>
         <ul id="main-nav">
           <li>
-            <a href="#">O REduc</a>
+            <a href="oreduc">O REduc</a>
           </li>
 
           <li>
