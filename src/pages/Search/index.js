@@ -12,7 +12,6 @@ import SearchPaginator from '../../components/SearchPaginator';
 import { searchPageRequest } from '../../store/modules/search/actions';
 import SearchBlock from '../../components/SearchBlock';
 import { Container, Section, Button, ButtonContainer } from './styles';
-import useQueryString from '../../hooks/useQueryString';
 
 const schema = Yup.object().shape({
   fields: Yup.object().shape({

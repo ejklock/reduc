@@ -6,6 +6,20 @@ export const Container = styled.div`
   padding: 40px;
 `;
 
+export const CardBody = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  h5 {
+    font-family: 'Rubik';
+    font-style: italic;
+    font-size: 15px;
+    padding-left: 15px;
+    color: #3a1d98;
+    margin-top: 10px;
+  }
+`;
+
 export const Card = styled.div`
   display: flex;
   flex-direction: row;
@@ -14,7 +28,7 @@ export const Card = styled.div`
   border-radius: 5px;
 
   align-items: center;
-  height: 208px;
+  height: 240px;
 
   background: #efeeee;
   img {
