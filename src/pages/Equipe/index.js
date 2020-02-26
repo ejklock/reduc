@@ -10,7 +10,7 @@ export default function Equipe() {
       <Section title="Equipe">
         <SectionText>
           <section>
-            <p>Alexande Martins dos Anjos</p>
+            <p>Alexandre Martins dos Anjos</p>
             <strong>Coordenador Geral</strong>
           </section>
           <section>

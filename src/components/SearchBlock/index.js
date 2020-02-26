@@ -48,7 +48,11 @@ export default function SearchBlock({ item = 0 }) {
           placeholder="digitar termo de busca"
         />
         <Select name={`type[${item}]`} defaultChecked options={fields} />
-        {item === 0 ? <Select name="bool" options={boolOptions} /> : ''}
+        {item === 0 ? (
+          <Select name="bool" options={boolOptions} multiple={false} />
+        ) : (
+          ''
+        )}
       </SearchContainer>
     </Container>
   );

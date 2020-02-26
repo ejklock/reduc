@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet';
 import Routes from './routes';
 import history from './services/history';
 
-import { store, persistor } from './store';
+import { store } from './store';
 
 import GlobalStyle from './styles/global';
 
@@ -26,13 +26,12 @@ function App() {
         />
         <link rel="canonical" href="https://reduc.ufmt.br" />
       </Helmet>
-      <PersistGate persistor={persistor}>
-        <Router history={history}>
-          <Routes />
-          <GlobalStyle />
-          <ToastContainer autoClose={3000} />
-        </Router>
-      </PersistGate>
+
+      <Router history={history}>
+        <Routes />
+        <GlobalStyle />
+        <ToastContainer autoClose={3000} />
+      </Router>
     </Provider>
   );
 }
