@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+/.vscode/sftp.json
+
 .vscode
 
 # testing
