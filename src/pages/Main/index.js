@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './styles';
+
 import LogoUFmt from '../../assets/img/logo_ufmt_negativo_Prancheta_1.png';
 import HeaderReduc from '../../components/HeaderReduc';
 import NavBar from '../../components/NavBar';
@@ -72,7 +72,7 @@ const courses = [
 
 export default function Main() {
   return (
-    <Container>
+    <>
       <NavBar background="#130934" />
       <HeaderReduc>
         <SearchInput />
@@ -85,6 +85,6 @@ export default function Main() {
       </Section>
 
       <Footer logo={LogoUFmt} />
-    </Container>
+    </>
   );
 }

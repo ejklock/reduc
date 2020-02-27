@@ -1,5 +1,4 @@
 import React from 'react';
-import Skeleton from 'react-loading-skeleton';
 import Extensao from '../../assets/img/atividades_extensao.svg';
 import MaterialTextual from '../../assets/img/material_textual.svg';
 import DesenvolvimentoAplicativos from '../../assets/img/desenvol_aplicativo.svg';

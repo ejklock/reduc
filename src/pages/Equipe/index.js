@@ -1,6 +1,6 @@
 import React from 'react';
 import Section from '../../components/Section';
-import { SectionText } from './styles';
+import SectionText from '../../components/SectionText';
 import NavBar from '../../components/NavBar';
 
 export default function Equipe() {

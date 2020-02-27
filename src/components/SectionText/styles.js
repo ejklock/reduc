@@ -1,7 +1,14 @@
 import styled from 'styled-components';
 
-export const SectionText = styled.div`
-  padding-top: 15px;
+export const Container = styled.div`
+  padding: 15px;
+  p {
+    font-family: 'Rubik';
+    font-weight: 300;
+    font-size: 25px;
+
+    color: #4925bb;
+  }
   section {
     font-family: 'Rubik';
     font-weight: 500;
@@ -13,8 +20,12 @@ export const SectionText = styled.div`
     margin-bottom: 30px;
   }
   @media (max-width: 600px) {
-    section {
+    p {
+      font-family: 'Rubik';
+      font-weight: 300;
       font-size: 18px;
+
+      color: #4925bb;
     }
   }
 `;

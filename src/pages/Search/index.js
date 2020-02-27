@@ -5,7 +5,7 @@ import { FaPlus, FaSearch } from 'react-icons/fa';
 import * as Yup from 'yup';
 
 import queryString from 'query-string';
-import Skeleton from 'react-loading-skeleton';
+
 import NavBar from '../../components/NavBar';
 import SearchItems from '../../components/SearchItems';
 import SearchPaginator from '../../components/SearchPaginator';
@@ -97,7 +97,7 @@ export default function Search() {
           <SearchPaginator />
         </>
       ) : (
-        <Skeleton circle height={50} width={50} />
+        ''
       )}
     </Container>
   );

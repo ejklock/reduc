@@ -5,6 +5,7 @@ import Main from '../pages/Main';
 import Search from '../pages/Search';
 import Equipe from '../pages/Equipe';
 import About from '../pages/About';
+import Contato from '../pages/Contato';
 
 export default function Routes() {
   return (
@@ -13,6 +14,7 @@ export default function Routes() {
       <Route path="/oreduc" exact isHome component={About} />
       <Route path="/search" exact isHome component={Search} />
       <Route path="/equipe" exact isHome component={Equipe} />
+      <Route path="/contato" exact isHome component={Contato} />
     </Switch>
   );
 }
