@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MediaContainer, Container } from './styles';
+import { MediaContainer, Container, MediaIconContainer } from './styles';
 
 export default function Media({ medias = [] }) {
   return (
@@ -8,10 +8,17 @@ export default function Media({ medias = [] }) {
       {medias.map(media => (
         <a key={Math.random()} href={`search?&filter[]=${media.url}`}>
           <MediaContainer>
-            <img
-              src={media.icon}
-              alt={`Ícone de tipo de Mídia ${media.name}`}
-            />
+            {media.svg ? (
+              <MediaIconContainer>
+                <media.icon />
+              </MediaIconContainer>
+            ) : (
+              <img
+                src={media.icon}
+                alt={`Ícone de tipo de Mídia ${media.name}`}
+              />
+            )}
+
             <h3>{media.name}</h3>
           </MediaContainer>
         </a>

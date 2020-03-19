@@ -49,3 +49,20 @@ export const MediaContainer = styled.div`
     color: #281664;
   }
 `;
+export const MediaIconContainer = styled.div`
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  background: #3a1d98;
+  width: 127px;
+  height: 127px;
+  padding: 35px;
+
+  svg {
+    width: 127px;
+    height: 127px;
+    color: #fff;
+  }
+`;
