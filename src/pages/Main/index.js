@@ -19,9 +19,6 @@ export default function Main() {
       <Section title="Tpos de Mídia">
         <Media medias={medias} />
       </Section>
-      <Section title="Cursos" color="#EFEEEE">
-        <Media medias={courses} />
-      </Section>
       <Footer logo={LogoUFmt} />
     </>
   );
