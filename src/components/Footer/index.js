@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import { Container } from './styles';
 
 export default function Footer(props) {
@@ -17,3 +18,11 @@ export default function Footer(props) {
     </Container>
   );
 }
+
+Footer.propTypes = {
+  logo: PropTypes.string,
+};
+
+Footer.defaultProps = {
+  logo: '',
+};

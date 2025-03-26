@@ -7,7 +7,6 @@ import {
   FaSlideshare,
 } from 'react-icons/fa';
 import MidiasEducacionais from '../../assets/img/midias.svg';
-import Apps from '../../assets/img/desenvol_aplicativo.svg';
 import Text from '../../assets/img/material_textual.svg';
 import PosGraducao from '../../assets/img/pos_graduacao.svg';
 import OrganizacaoEvento from '../../assets/img/organizacao_evento.svg';

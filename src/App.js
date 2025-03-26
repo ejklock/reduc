@@ -4,8 +4,6 @@ import { ToastContainer } from 'react-toastify';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
 
-import './config/ReactotronConfig';
-
 import { Helmet } from 'react-helmet';
 import Routes from './routes';
 import history from './services/history';

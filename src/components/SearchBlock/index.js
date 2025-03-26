@@ -1,6 +1,7 @@
 import React from 'react';
 import { Input, Select } from '@rocketseat/unform';
 
+import PropTypes from 'prop-types';
 import { Container, SearchContainer } from './styles';
 
 const boolOptions = [
@@ -49,7 +50,7 @@ export default function SearchBlock({ item = 0 }) {
         />
         <Select name={`type[${item}]`} defaultChecked options={fields} />
         {item === 0 ? (
-          <Select multiple name="bool" options={boolOptions} multiple={false} />
+          <Select multiple name="bool" options={boolOptions} />
         ) : (
           ''
         )}
@@ -57,3 +58,11 @@ export default function SearchBlock({ item = 0 }) {
     </Container>
   );
 }
+
+PropTypes.propTypes = {
+  item: PropTypes.number,
+};
+
+PropTypes.defaultProps = {
+  item: 0,
+};

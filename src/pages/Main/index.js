@@ -7,7 +7,7 @@ import Footer from '../../components/Footer';
 import SearchInput from '../../components/SearchInput';
 import Section from '../../components/Section';
 import Media from '../../components/Media';
-import { medias, courses } from '../../enums/medias';
+import { medias } from '../../enums/medias';
 
 export default function Main() {
   return (
